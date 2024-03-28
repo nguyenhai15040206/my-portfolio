@@ -173,6 +173,7 @@ body {
   border: none;
   background: var(--skin-color);
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .row {
