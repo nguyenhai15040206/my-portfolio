@@ -1,4 +1,3 @@
-
 const nav = document.querySelector(".aside .aside-menu .nav");
 const navList = nav.querySelectorAll("li");
 const totalNavList = navList.length;
@@ -84,4 +83,26 @@ function asideSectionTogglerBtn() {
   for (let i = 0; i < totalSection; i++) {
     allSection[i].classList.toggle("open");
   }
+}
+
+// send email
+function SendEmail() {
+  var params = {
+    name: document.getElementById("txtName").value,
+    email: document.getElementById("txtEmail").value,
+    subject: document.getElementById("txtSubject").value,
+    message: document.getElementById("txtMessage").value,
+  };
+  emailjs
+    .send("service-portfolio", "template_t31leab", params)
+    .then(function (res) {
+      alert("Success!!!" + res.status);
+      document.getElementById("txtName").value = "";
+      document.getElementById("txtEmail").value = "";
+      document.getElementById("txtSubject").value = "";
+      document.getElementById("txtMessage").value = "";
+    })
+    .catch(function (error) {
+      alert(error);
+    });
 }
